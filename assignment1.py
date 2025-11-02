@@ -1,13 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  1 01:34:56 2025
-
-@author: aergu
-"""
 import numpy as np
 
+g = 9.81
+
 def find_period(L0, L1):
-    g = 9.81  # gravity (m/s^2)
-    T0 = 2 * np.pi * np.sqrt(L0 / g)  # period at L0 (s)
-    T1 = 2 * np.pi * np.sqrt(L1 / g)  # period at L1 (s)
+    for L in range(L0, L1 + 1):
+        T = 2 * np.pi * np.sqrt(L / g)
+        print(f"When L = {L:4.1f} m, T = {T:4.1f} s")
+
+    T0 = 2 * np.pi * np.sqrt(L0 / g)
+    T1 = 2 * np.pi * np.sqrt(L1 / g)
     return T0, T1
+find_period(2, 10)
+
